@@ -16,6 +16,8 @@ public class Laberinto {
     private int largo = 3;
 
     private short [][] laberinto;
+    private short [] nodosVecinos;
+    private String[] solucion;
     
     public Laberinto() {
         System.out.println("Nuevo laberinto de tamaño " + alto + " por " + largo);
@@ -37,15 +39,40 @@ public class Laberinto {
         }
         
         //Colocar obstaculos
-        setValor(1, 2, OBSTACULO);
-        setValor(2, 2, OBSTACULO);
-        setValor(2, 3, OBSTACULO);
+        setValor(2, 2, (short)-1);
+        setValor(3, 2, (short)-1);
+        setValor(3, 1, (short)-1);
         
         //Especificar el estado inicial
         setValor(1, 1, (short)0);
         
         //Especifiar el estado objetivo
-        setValor(largo - 1, alto - 1, OBJETIVO);
+        setValor(largo, alto, OBJETIVO);
+        
+        //Imprimir en consola matriz
+        for (int i = 0; i < laberinto.length; i++) {
+            for (int j  = 0; j < laberinto[i].length; j++) {
+                if (laberinto[i][j] == 0){
+                    System.out.print(laberinto[i][j] +"     ");
+                } else {
+                    System.out.print(laberinto[i][j] +"    ");
+                }
+            }
+            System.out.println();
+        }
+        
+        //Buscar solucion a lo ancho de la matriz
+        System.out.println("laberingo.length " + laberinto.length);
+        
+        for (int i = 1; i < laberinto.length - 1; i++) {
+            for (int j  = 1; j < laberinto[i].length - 1; j++) {
+                
+            }
+            
+                //System.out.println("La lista de vecinos a evaluar es " + nodosVecinos);
+        }
+          System.out.println("no logre implementar una solucion :(");
+        System.out.println("la solucion es " + solucion);
     }
     
     public short getValor(int x, int y) { 
@@ -53,7 +80,7 @@ public class Laberinto {
     }
     
     public void setValor(int x, int y, short value) { 
-        laberinto[x + 1][y + 1] = value; 
+        laberinto[x][y] = value; 
     }
     
     public int getLargo() { 

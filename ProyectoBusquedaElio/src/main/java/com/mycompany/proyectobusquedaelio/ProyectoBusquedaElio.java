@@ -11,7 +11,8 @@ package com.mycompany.proyectobusquedaelio;
  */
 public class ProyectoBusquedaElio {
 
+    
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        Laberinto laberinto = new Laberinto();  
     }
 }
